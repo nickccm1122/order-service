@@ -10,3 +10,8 @@ default = "development"
   [server.version]
     env = "API_VERSION"
     default = "1.0.0"
+
+[mongo]
+  [mongo.version]
+    env = "MONGO_VERSION"
+    default = '4.0.9'
