@@ -1,0 +1,11 @@
+version: '3.4'
+services:
+  app:
+    build:
+      context: .
+      target: run
+    entrypoint: ./start.sh
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/srv/app
