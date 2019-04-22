@@ -25,6 +25,7 @@
     "@commitlint/cli": "^7.5.2",
     "@commitlint/config-conventional": "^7.5.0",
     "convict": "^4.4.1",
+    "dotenv": "^7.0.0",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-config-standard": "^12.0.0",
@@ -48,6 +49,9 @@
     "ramda": "^0.26.1"
   },
   "jest": {
+    "setupFiles": [
+      "<rootDir>/src/tests/setupTests.js"
+    ],
     "testEnvironment": "<rootDir>/src/tests/MongoEnvironment.js",
     "testEnvironmentOptions": {
       "debug": false,

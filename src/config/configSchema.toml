@@ -15,3 +15,9 @@ default = "development"
   [mongo.version]
     env = "MONGO_VERSION"
     default = '4.0.9'
+
+[googleMap]
+  [googleMap.apiKey]
+    env = "GOOGLE_MAP_API_KEY"
+    format = "String"
+    default = false # make value required

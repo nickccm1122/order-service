@@ -3,7 +3,6 @@
 const NodeEnvironment = require('jest-environment-node')
 const { MongoMemoryServer } = require('mongodb-memory-server')
 const { MongoClient } = require('mongodb')
-const config = require('../config')
 
 /**
  * Create a custom jest environment for testing with mongo in memory
@@ -17,7 +16,7 @@ class MongoEnvironment extends NodeEnvironment {
   async setup() {
     // Setup MongoDB server
     this.mongod = new MongoMemoryServer({
-      binary: { version: config.get('mongo.version') },
+      binary: { version: '4.0.9' },
       autoStart: false,
     })
     if (!this.mongod.isRunning) {
