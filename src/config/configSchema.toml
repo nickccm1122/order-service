@@ -1,0 +1,12 @@
+[env]
+env =  "NODE_ENV"
+format = ["production", "development", "test"]
+default = "development"
+
+[server]
+  [server.port]
+    env = "PORT"
+    default = 8080
+  [server.version]
+    env = "API_VERSION"
+    default = "1.0.0"
