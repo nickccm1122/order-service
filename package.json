@@ -46,6 +46,7 @@
   "dependencies": {
     "@google/maps": "^0.5.5",
     "fastify": "^2.3.0",
+    "fastify-plugin": "^1.5.0",
     "mongoose": "^5.5.2",
     "ramda": "^0.26.1"
   },

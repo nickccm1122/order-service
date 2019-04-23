@@ -2,6 +2,8 @@
 
 const { buildFastify } = require('../app')
 
+jest.mock('../plugins/mongoosePlugin')
+
 describe('app.js', () => {
   const fastify = buildFastify()
 
@@ -14,7 +16,7 @@ describe('app.js', () => {
 
     const response = await fastify.inject({
       method: 'GET',
-      url: '/healthz'
+      url: '/healthz',
     })
 
     expect(response.payload).toBe('ok')

@@ -15,6 +15,10 @@ default = "development"
   [mongo.version]
     env = "MONGO_VERSION"
     default = '4.0.9'
+  [mongo.uri]
+    env = "MONGO_URL"
+    format = "String"
+    default = "mongodb://mongodb:27017"
 
 [googleMap]
   [googleMap.apiKey]
