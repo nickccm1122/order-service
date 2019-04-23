@@ -27,7 +27,7 @@ const createService = ({ apiKey }) => {
       // see https://developers.google.com/maps/documentation/distance-matrix/intro#StatusCodes for status codes
       const { json } = await googleMapsClient
         .distanceMatrix({
-          origins: [],
+          origins: [origin],
           destinations: [destination],
           units: 'metric',
         })

@@ -6,8 +6,8 @@ const { transformOrder } = require('./transformers')
 /**
  * @async
  * @param {Object} order
- * @param {String[]} order.origin - tuple, e.g. [ 'longitude', 'latitude']
- * @param {String[]} order.destination - tuple, e.g. [ 'longitude', 'latitude']
+ * @param {String[]} order.origin - tuple, e.g. [ 'latitude', 'longitude']
+ * @param {String[]} order.destination - tuple, e.g. [ 'latitude', 'longitude' ]
  * @param {Number} order.distance
  * @returns {Object}
  */
