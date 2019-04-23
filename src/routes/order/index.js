@@ -2,14 +2,14 @@
 
 const assert = require('assert')
 
-const createOrderSchema = require('./createOrder.schema')
-const takeOrderSchema = require('./takeOrder.schema')
+const postOrderSchema = require('./postOrder.schema')
+const patchOrderSchema = require('./patchOrder.schema')
 
 const orderRoutes = async (fastify, opts) => {
   const { orderService } = fastify
   assert(orderService, 'orderService is not registered')
 
-  fastify.post('/orders', createOrderSchema, async (request, reply) => {
+  fastify.post('/orders', postOrderSchema, async (request, reply) => {
     const { origin, destination } = request.body
 
     const newOrder = await orderService.createOrder({ origin, destination })
@@ -17,7 +17,7 @@ const orderRoutes = async (fastify, opts) => {
     return newOrder
   })
 
-  fastify.patch('/orders/:orderId', takeOrderSchema, async (request, reply) => {
+  fastify.patch('/orders/:orderId', patchOrderSchema, async (request, reply) => {
     const { orderId } = request.params
 
     const { ok } = await orderService.takeOrder(orderId)
