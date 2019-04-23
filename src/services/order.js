@@ -38,7 +38,21 @@ const createService = ({ orderRepository, distanceMatrixService }) => {
     }
   }
 
-  return { createOrder }
+  /**
+   * @async
+   * @param {string} orderId
+   *
+   * @returns {number} lockId
+   */
+  const takeOrder = async orderId => {
+    const { ok } = await orderRepository.takeOrder(orderId)
+
+    return {
+      ok,
+    }
+  }
+
+  return { createOrder, takeOrder }
 }
 
 module.exports = {

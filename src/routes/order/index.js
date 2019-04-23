@@ -3,6 +3,7 @@
 const assert = require('assert')
 
 const createOrderSchema = require('./createOrder.schema')
+const takeOrderSchema = require('./takeOrder.schema')
 
 const orderRoutes = async (fastify, opts) => {
   const { orderService } = fastify
@@ -14,6 +15,23 @@ const orderRoutes = async (fastify, opts) => {
     const newOrder = await orderService.createOrder({ origin, destination })
 
     return newOrder
+  })
+
+  fastify.patch('/orders/:orderId', takeOrderSchema, async (request, reply) => {
+    const { orderId } = request.params
+
+    const { ok } = await orderService.takeOrder(orderId)
+
+    if (!ok) {
+      // TODO: use custom error class provide more context
+      const error = new Error('order may has been taken')
+      error.statusCode = 400
+      return error
+    }
+
+    return {
+      status: 'SUCCESS',
+    }
   })
 }
 

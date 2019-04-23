@@ -6,8 +6,8 @@ const { transformOrder } = require('./transformers')
 /**
  * @async
  * @param {Object} order
- * @param {String[]} order.origin - tuple, e.g. [ 'latitude', 'longitude']
- * @param {String[]} order.destination - tuple, e.g. [ 'latitude', 'longitude' ]
+ * @param {string[]} order.origin - tuple, e.g. [ 'latitude', 'longitude']
+ * @param {string[]} order.destination - tuple, e.g. [ 'latitude', 'longitude' ]
  * @param {Number} order.distance
  * @returns {Object}
  */
@@ -27,6 +27,27 @@ const create = async ({ origin, destination, distance }) => {
   return transformOrder(created.toObject())
 }
 
+/**
+ * @async
+ * @param {string} orderId
+ *
+ * @returns {Object} - { ok }
+ */
+const takeOrder = async orderId => {
+  const result = await Orders.updateOne(
+    {
+      _id: orderId,
+      status: Orders.STATUS.UNASSIGNED,
+    },
+    { status: Orders.STATUS.TAKEN }
+  )
+
+  return {
+    ok: result.nModified >= 1,
+  }
+}
+
 module.exports = {
   create,
+  takeOrder,
 }
