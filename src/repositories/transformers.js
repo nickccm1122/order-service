@@ -27,7 +27,7 @@ const toLongitudeLatitude = value => {
 const transformOrder = R.when(
   R.is(Object),
   R.pipe(
-    R.omit(['__v', 'updatedAt', 'createdAt']),
+    R.omit(['__v', 'updatedAt', 'createdAt', 'origin', 'destination']),
     RA.renameKeys({
       _id: 'id'
     }),

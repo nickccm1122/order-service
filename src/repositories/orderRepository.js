@@ -47,7 +47,29 @@ const takeOrder = async orderId => {
   }
 }
 
+/**
+ * @async
+ * @param {Object} option
+ * @param {number} option.page
+ * @param {number} option.limit
+ *
+ * @return {Object[]}
+ */
+const getOrders = async ({ page, limit }) => {
+  const orders = await Orders.aggregate([
+    {
+      $skip: page * limit,
+    },
+    {
+      $limit: limit,
+    },
+  ]).exec()
+
+  return orders.map(order => transformOrder(order))
+}
+
 module.exports = {
   create,
   takeOrder,
+  getOrders,
 }

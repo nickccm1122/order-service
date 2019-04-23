@@ -4,6 +4,7 @@ const assert = require('assert')
 
 const postOrderSchema = require('./postOrder.schema')
 const patchOrderSchema = require('./patchOrder.schema')
+const getOrdersSchema = require('./getOrders.schema')
 
 const orderRoutes = async (fastify, opts) => {
   const { orderService } = fastify
@@ -17,21 +18,36 @@ const orderRoutes = async (fastify, opts) => {
     return newOrder
   })
 
-  fastify.patch('/orders/:orderId', patchOrderSchema, async (request, reply) => {
-    const { orderId } = request.params
+  fastify.patch(
+    '/orders/:orderId',
+    patchOrderSchema,
+    async (request, reply) => {
+      const { orderId } = request.params
 
-    const { ok } = await orderService.takeOrder(orderId)
+      const { ok } = await orderService.takeOrder(orderId)
 
-    if (!ok) {
-      // TODO: use custom error class provide more context
-      const error = new Error('order may has been taken')
-      error.statusCode = 400
-      return error
+      if (!ok) {
+        // TODO: use custom error class provide more context
+        const error = new Error('order may has been taken')
+        error.statusCode = 400
+        return error
+      }
+
+      return {
+        status: 'SUCCESS',
+      }
     }
+  )
 
-    return {
-      status: 'SUCCESS',
-    }
+  fastify.get('/orders', getOrdersSchema, async (request, reply) => {
+    const { page, limit } = request.query
+
+    const orders = await orderService.getOrders({
+      page,
+      limit,
+    })
+
+    return orders
   })
 }
 

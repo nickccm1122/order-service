@@ -31,11 +31,7 @@ const createService = ({ orderRepository, distanceMatrixService }) => {
       distance,
     })
 
-    return {
-      id: newOrder.id,
-      distance: newOrder.distance,
-      status: newOrder.status,
-    }
+    return newOrder
   }
 
   /**
@@ -52,7 +48,24 @@ const createService = ({ orderRepository, distanceMatrixService }) => {
     }
   }
 
-  return { createOrder, takeOrder }
+  /**
+   * @async
+   * @param {Object} option
+   * @param {number} option.page
+   * @param {number} option.limit
+   *
+   * @return {Object[]}
+   */
+  const getOrders = async ({ page = 0, limit = 50 }) => {
+    const orders = await orderRepository.getOrders({
+      page,
+      limit,
+    })
+
+    return orders
+  }
+
+  return { createOrder, takeOrder, getOrders }
 }
 
 module.exports = {

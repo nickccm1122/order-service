@@ -32,8 +32,6 @@ describe('orderRepository', () => {
           expect.objectContaining({
             id: expect.any(String),
             status: Orders.STATUS.UNASSIGNED,
-            origin: payload.origin,
-            destination: payload.destination,
             distance: payload.distance,
           })
         )
