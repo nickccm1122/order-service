@@ -12,6 +12,7 @@ const mongoObjectIdSchema = {
 
 module.exports = {
   schema: {
+    summary: 'take order',
     params: {
       orderId: mongoObjectIdSchema,
     },

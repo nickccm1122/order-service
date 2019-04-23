@@ -10,6 +10,7 @@ const coordinatesSchema = {
 
 module.exports = {
   schema: {
+    summary: 'place order',
     body: {
       type: 'object',
       required: ['origin', 'destination'],

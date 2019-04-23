@@ -2,6 +2,7 @@
 
 module.exports = {
   schema: {
+    summary: 'list orders',
     querystring: {
       type: 'object',
       required: ['page', 'limit'],

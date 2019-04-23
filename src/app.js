@@ -1,6 +1,9 @@
 'use strict'
 
 const Fastify = require('fastify')
+const fastifySwagger = require('fastify-swagger')
+
+const packageInfo = require('../package')
 const mongoosePlugin = require('./plugins/mongoosePlugin')
 const orderRoutes = require('./routes/order')
 const config = require('./config')
@@ -20,6 +23,20 @@ const buildFastify = () => {
   const orderService = createOrderService({
     orderRepository,
     distanceMatrixService,
+  })
+
+  fastify.register(fastifySwagger, {
+    swagger: {
+      info: {
+        title: packageInfo.name,
+        description: packageInfo.description,
+        version: `${packageInfo.version}(${config.get('env')})`,
+      },
+      schemes: ['http', 'https'],
+      consumes: ['application/json'],
+      produces: ['application/json'],
+    },
+    exposeRoute: true,
   })
 
   fastify.register(mongoosePlugin, {

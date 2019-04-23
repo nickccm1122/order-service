@@ -47,6 +47,7 @@
     "@google/maps": "^0.5.5",
     "fastify": "^2.3.0",
     "fastify-plugin": "^1.5.0",
+    "fastify-swagger": "^2.3.2",
     "mongoose": "^5.5.2",
     "ramda": "^0.26.1",
     "ramda-adjunct": "^2.17.0"
