@@ -48,7 +48,8 @@
     "fastify": "^2.3.0",
     "fastify-plugin": "^1.5.0",
     "mongoose": "^5.5.2",
-    "ramda": "^0.26.1"
+    "ramda": "^0.26.1",
+    "ramda-adjunct": "^2.17.0"
   },
   "jest": {
     "setupFiles": [

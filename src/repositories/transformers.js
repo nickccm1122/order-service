@@ -1,6 +1,7 @@
 'use strict'
 
 const R = require('ramda')
+const RA = require('ramda-adjunct');
 
 const mongoose = require('mongoose')
 
@@ -27,8 +28,11 @@ const transformOrder = R.when(
   R.is(Object),
   R.pipe(
     R.omit(['__v', 'updatedAt', 'createdAt']),
+    RA.renameKeys({
+      _id: 'id'
+    }),
     R.evolve({
-      _id: toStringIfObjectId,
+      id: toStringIfObjectId,
       origin: toLongitudeLatitude,
       destination: toLongitudeLatitude,
     })

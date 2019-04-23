@@ -32,7 +32,7 @@ const createService = ({ orderRepository, distanceMatrixService }) => {
     })
 
     return {
-      id: newOrder._id,
+      id: newOrder.id,
       distance: newOrder.distance,
       status: newOrder.status,
     }
