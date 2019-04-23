@@ -6,6 +6,7 @@
   - [Introduction](#introduction)
     - [How to run](#how-to-run)
       - [Using docker](#using-docker)
+        - [GOOGLE_MAP_API_KEY](#google_map_api_key)
   - [Configurations and Environment Variables](#configurations-and-environment-variables)
   - [Swagger](#swagger)
 
@@ -17,6 +18,8 @@
 
 #### Using docker
 
+`docker-compose.yml` and `start.sh` bash script at the root of the project, which should setup all relevant services/applications.
+
 ```sh
 # provide environment variables via .env
 cp .env.example .env
@@ -25,6 +28,10 @@ cp .env.example .env
 docker-compose build
 docker-compose up -d
 ```
+
+##### GOOGLE_MAP_API_KEY
+
+This is the only required environment variable for service to run. The value should be set in `.env`
 
 ## Configurations and Environment Variables
 

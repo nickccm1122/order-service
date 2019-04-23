@@ -1,6 +1,6 @@
 #!/bin/sh
 
 # watch mode
-yarn dev
+# yarn dev
 
-# yarn start
+yarn start
