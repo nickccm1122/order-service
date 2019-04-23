@@ -277,6 +277,13 @@
   dependencies:
     find-up "^2.1.0"
 
+"@google/maps@^0.5.5":
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/@google/maps/-/maps-0.5.5.tgz#478a5791e3b8d444be966462daec3ee43eb331e0"
+  integrity sha512-RSZriyE2XViVhXgdEcQaEu3jMYh2A/jS0VahLHXqGO0VfPyEbDac4PAn7/hBJiTavWpxchKfe5OI9inJofFWxA==
+  dependencies:
+    uuid ">=2.2.1"
+
 "@jest/console@^24.7.1":
   version "24.7.1"
   resolved "https://registry.yarnpkg.com/@jest/console/-/console-24.7.1.tgz#32a9e42535a97aedfe037e725bd67e954b459545"
@@ -6021,7 +6028,7 @@ util.promisify@^1.0.0:
     define-properties "^1.1.2"
     object.getownpropertydescriptors "^2.0.3"
 
-uuid@^3.2.1, uuid@^3.3.2:
+uuid@>=2.2.1, uuid@^3.2.1, uuid@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
