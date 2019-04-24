@@ -9,6 +9,7 @@
         - [GOOGLE_MAP_API_KEY](#google_map_api_key)
   - [Configurations and Environment Variables](#configurations-and-environment-variables)
   - [Swagger](#swagger)
+  - [Tests](#tests)
 
 <!-- /TOC -->
 
@@ -49,5 +50,16 @@ This project use [node-convict] to help managing configurations and environment 
 
 After starting up the servier, a swagger web will be accessable via `http://localhost:8080/documentation/static/index.html`
 
+## Tests
+
+run `yarn test`
+
+Some tests use in-memory mongo instance for mocking out real db connection. By default, running tests will auto-download `latest` Mongod binary on `npm install` to `node_modules/.cache` for obtaining the required `mongod` binary and this may slow down your testing experience. However you may provide your `mongod` binary by passing `MONGOMS_SYSTEM_BINARY` environment variable when running test. For example:
+
+`MONGOMS_SYSTEM_BINARY=/usr/local/bin/mongod yarn test`
+
+see more on [mongodb-memory-server-options]
+
 [node-convict]: https://github.com/mozilla/node-convict
 [node-convict-precendence-order]: https://github.com/mozilla/node-convict#precendence-order
+[mongodb-memory-server-options]: https://github.com/nodkz/mongodb-memory-server#options-which-can-be-set-via-environment-variables
