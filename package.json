@@ -56,9 +56,9 @@
   },
   "jest": {
     "setupFiles": [
-      "<rootDir>/src/tests/setupTests.js"
+      "<rootDir>/src/tests/settings/setupTests.js"
     ],
-    "testEnvironment": "<rootDir>/src/tests/MongoEnvironment.js",
+    "testEnvironment": "<rootDir>/src/tests/settings/MongoEnvironment.js",
     "testEnvironmentOptions": {
       "debug": false,
       "shouldValidateResponse": false
