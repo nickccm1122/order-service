@@ -14,7 +14,7 @@ const {
 const { createService: createOrderService } = require('./services/order')
 
 const buildFastify = () => {
-  const fastify = Fastify({ logger: true })
+  const fastify = Fastify()
 
   const distanceMatrixService = createDistanceMatrix({
     apiKey: config.get('googleMap.apiKey'),
